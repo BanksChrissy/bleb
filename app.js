@@ -1,7 +1,7 @@
 "use strict";
 const byId = (id) => document.getElementById(id);
-const els = Object.fromEntries(["search","specialty","year","kind","sort","favoritesOnly","updatesOnly","yearWrap","kindWrap","updatesWrap","results","empty","error","resultsTitle","resultsCount","guidelineTotal","societyTotal","curatedDate","auditStatus"].map((id) => [id,byId(id)]));
-const state = { view:"guidelines", guidelines:[], societies:[], q:"", specialty:"", year:"", kind:"", sort:"newest", favoritesOnly:false, updatesOnly:false, favorites:new Set(), audits:null, lastCurated:"" };
+const els = Object.fromEntries(["search","specialty","year","kind","sort","favoritesOnly","updatesOnly","yearWrap","kindWrap","updatesWrap","specialtyWrap","results","empty","error","resultsTitle","resultsCount","guidelineTotal","societyTotal","curatedDate","auditStatus"].map((id) => [id,byId(id)]));
+const state = { view:"guidelines", guidelines:[], societies:[], recent:[], recentDiscovered:null, q:"", specialty:"", year:"", kind:"", sort:"newest", favoritesOnly:false, updatesOnly:false, favorites:new Set(), audits:null, lastCurated:"" };
 const safeStore = {
   get(key) { try { return JSON.parse(localStorage.getItem(key) || "null"); } catch { return null; } },
   set(key,val) { try { localStorage.setItem(key,JSON.stringify(val)); } catch {} }
@@ -31,7 +31,7 @@ function updateUrl() {
 }
 function restoreUrl() {
   const p=new URLSearchParams(location.search);
-  state.view=p.get("view")==="societies"?"societies":"guidelines";
+  state.view=["societies","recent"].includes(p.get("view"))?p.get("view"):"guidelines";
   state.q=p.get("q")||"";
   state.specialty=p.get("specialty")||"";
   state.year=p.get("year")||"";
@@ -50,7 +50,7 @@ function options(el,first,values) {
   el.value=values.map(String).includes(String(previous))?previous:"";
 }
 function rebuildOptions() {
-  const items=state.view==="guidelines"?state.guidelines:state.societies;
+  const items=state.view==="guidelines"?state.guidelines:state.view==="societies"?state.societies:state.recent;
   const specialties=[...new Set(items.map(x=>x.specialty))].sort((a,b)=>a.localeCompare(b));
   options(els.specialty,"All specialties",specialties);
   if(state.specialty && specialties.includes(state.specialty)) els.specialty.value=state.specialty;
@@ -63,10 +63,11 @@ function rebuildOptions() {
   options(els.kind,"All types",kinds);
   if(kinds.includes(state.kind)) els.kind.value=state.kind;
   else state.kind="";
+  els.specialtyWrap.hidden=state.view==="recent";
   els.yearWrap.hidden=state.view!=="guidelines";
   els.kindWrap.hidden=state.view!=="guidelines";
   els.updatesWrap.hidden=state.view!=="guidelines";
-  els.resultsTitle.textContent=state.view==="guidelines"?"Individual guidelines":"Publisher libraries";
+  els.resultsTitle.textContent=state.view==="guidelines"?"Individual guidelines":state.view==="societies"?"Publisher libraries":"New on PubMed · unreviewed";
   for(const tab of document.querySelectorAll(".tab")) {
     const active=tab.dataset.view===state.view;
     tab.classList.toggle("active",active);
@@ -101,6 +102,7 @@ function auditLabel(id) {
 }
 function descriptionFor(item) {
   if(state.view==="societies") return "Official specialty society reference library. Browse published documents and updates at the source.";
+  if(state.view==="recent") return "Automatically discovered bibliographic record. Not vetted for clinical currency, intended population or guideline authority.";
   return item.note||"Official guideline resource.";
 }
 function announce(message) {
@@ -126,11 +128,11 @@ function cardFor(item) {
   const card=make("article","result-card");
   const top=make("div","card-top");
   top.append(make("span","specialty",item.specialty));
-  if(state.view==="guidelines") top.append(make("span","year",item.year));
+  if(state.view!=="societies" && item.year) top.append(make("span","year",item.year));
   card.append(top);
   const h=make("h3","",item.title||item.name);
   card.append(h);
-  const publisher=state.view==="guidelines"?(item.organization+" · "+item.kind+" · "+item.population):item.kind;
+  const publisher=state.view!=="societies"?(item.organization+" · "+item.kind+" · "+item.population):item.kind;
   card.append(make("div","meta",publisher));
   card.append(make("p","description",descriptionFor(item)));
   if(item.reviewFlag) {
@@ -172,11 +174,15 @@ function cardFor(item) {
   return card;
 }
 function render() {
-  const rows=matched(state.view==="guidelines"?state.guidelines:state.societies);
+  const rows=matched(state.view==="guidelines"?state.guidelines:state.view==="societies"?state.societies:state.recent);
   const fragment=document.createDocumentFragment();
   rows.forEach(x=>fragment.append(cardFor(x)));
   els.results.replaceChildren(fragment);
-  els.resultsCount.textContent=rows.length+" of "+(state.view==="guidelines"?state.guidelines.length:state.societies.length)+" references";
+  const total=state.view==="guidelines"?state.guidelines.length:state.view==="societies"?state.societies.length:state.recent.length;
+  els.resultsCount.textContent=rows.length+" of "+total+" references"+(state.view==="recent"?" · Unverified PubMed candidates":"");
+  const emptyTitle=els.empty.querySelector("h3"),emptyMessage=els.empty.querySelector("p");
+  if(state.view==="recent" && total===0){ emptyTitle.textContent="First discovery scan pending";emptyMessage.textContent="The weekly PubMed candidate feed has not populated yet. It does not affect the curated guideline catalog."; }
+  else {emptyTitle.textContent="No matching references";emptyMessage.textContent="Try a broader term or clear your filters.";}
   els.empty.hidden=rows.length>0;
   updateUrl();
 }
@@ -192,8 +198,8 @@ function reset() {
   rebuildOptions();render();
 }
 function exportCsv() {
-  const rows=matched(state.view==="guidelines"?state.guidelines:state.societies);
-  const fields=state.view==="guidelines"?["title","year","organization","specialty","topic","kind","population","url","note","verifiedAt","reviewFlag"]:["name","specialty","url","kind"];
+  const rows=matched(state.view==="guidelines"?state.guidelines:state.view==="societies"?state.societies:state.recent);
+  const fields=state.view==="guidelines"?["title","year","organization","specialty","topic","kind","population","url","note","verifiedAt","reviewFlag"]:state.view==="societies"?["name","specialty","url","kind"]:["title","year","organization","kind","url","note"];
   const quote=(v)=>'"'+String(v??"").replace(/"/g,'""')+'"';
   const csv=[fields.join(","),...rows.map(r=>fields.map(f=>quote(r[f])).join(","))].join("\r\n");
   const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"});
@@ -229,6 +235,10 @@ async function start() {
     els.guidelineTotal.textContent=String(g.items.length);
     els.societyTotal.textContent=String(s.items.length);
     els.curatedDate.textContent=dateLabel(g.lastCurated);
+    try{
+      const recent=await fetch("./data/recent.json",{cache:"no-cache"});
+      if(recent.ok){const d=await recent.json();state.recent=Array.isArray(d.items)?d.items:[];state.recentDiscovered=d.discoveredAt;}
+    }catch{}
     rebuildOptions();render();
     try{
       const a=await fetch("./data/link-status.json",{cache:"no-cache"});
