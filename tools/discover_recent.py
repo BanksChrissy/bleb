@@ -51,10 +51,10 @@ def main():
         if not uid.isdigit():
             continue
         item = details.get("result", {}).get(uid, {})
-        title = html.unescape(re.sub(r"<[^>]+>", "", item.get("title", ""))).strip()
+        title = html.unescape(re.sub(r"<[^>]+>", "", str(item.get("title") or ""))).strip()
         if not title:
             continue
-        date = item.get("pubdate", "")
+        date = str(item.get("pubdate") or "")
         year_match = re.search(r"\b(?:19|20)\d{2}\b", date)
         rows.append({
             "id": "pubmed-" + uid,
