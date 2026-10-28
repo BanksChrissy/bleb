@@ -1,0 +1,229 @@
+{
+  "lastCurated": "2026-10-28",
+  "items": [
+    {
+      "id": "s0",
+      "specialty": "Resuscitation",
+      "name": "AHA CPR and ECC",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s1",
+      "specialty": "Resuscitation",
+      "name": "ILCOR",
+      "url": "https://www.ilcor.org/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s2",
+      "specialty": "Emergency Medicine",
+      "name": "ACEP Clinical Policies",
+      "url": "https://www.acep.org/patient-care/clinical-policies",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s3",
+      "specialty": "Trauma",
+      "name": "EAST Practice Management Guidelines",
+      "url": "https://www.east.org/education-resources/practice-management-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s4",
+      "specialty": "Trauma",
+      "name": "ACS Trauma Quality Programs",
+      "url": "https://www.facs.org/quality-programs/trauma/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s5",
+      "specialty": "Trauma",
+      "name": "Western Trauma Association Algorithms",
+      "url": "https://www.westerntrauma.org/western-trauma-association-algorithms/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s6",
+      "specialty": "Burns",
+      "name": "ABA Clinical Practice Guidelines",
+      "url": "https://www.ameriburn.org/quality-care/clinical-practice-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s7",
+      "specialty": "Critical Care",
+      "name": "SCCM Guidelines",
+      "url": "https://www.sccm.org/clinical-resources/guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s8",
+      "specialty": "Cardiology",
+      "name": "ACC Guidelines",
+      "url": "https://www.acc.org/guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s9",
+      "specialty": "Cardiology",
+      "name": "AHA Guidelines and Statements",
+      "url": "https://professional.heart.org/en/guidelines-and-statements",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s10",
+      "specialty": "Cardiology",
+      "name": "ESC Guidelines",
+      "url": "https://www.escardio.org/Guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s11",
+      "specialty": "Pulmonology",
+      "name": "GINA Reports",
+      "url": "https://ginasthma.org/reports/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s12",
+      "specialty": "Pulmonology",
+      "name": "GOLD COPD Reports",
+      "url": "https://goldcopd.org/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s13",
+      "specialty": "Pulmonology",
+      "name": "ATS Statements",
+      "url": "https://www.thoracic.org/statements/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s14",
+      "specialty": "Neurology",
+      "name": "AHA/ASA Stroke Guidelines",
+      "url": "https://www.ahajournals.org/guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s15",
+      "specialty": "Infectious Disease",
+      "name": "IDSA Practice Guidelines",
+      "url": "https://www.idsociety.org/practiceguidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s16",
+      "specialty": "Infectious Disease",
+      "name": "CDC Clinical Guidance",
+      "url": "https://www.cdc.gov/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s17",
+      "specialty": "Endocrinology",
+      "name": "ADA Standards of Care",
+      "url": "https://professional.diabetes.org/standards-of-care",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s18",
+      "specialty": "Endocrinology",
+      "name": "Endocrine Society Guidelines",
+      "url": "https://www.endocrine.org/clinical-practice-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s19",
+      "specialty": "Nephrology",
+      "name": "KDIGO Guidelines",
+      "url": "https://kdigo.org/guidelines/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s20",
+      "specialty": "Gastroenterology",
+      "name": "ACG Guidelines",
+      "url": "https://gi.org/guidelines/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s21",
+      "specialty": "Gastroenterology",
+      "name": "AGA Clinical Guidance",
+      "url": "https://gastro.org/clinical-guidance/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s22",
+      "specialty": "Obstetrics",
+      "name": "ACOG Clinical Guidance",
+      "url": "https://www.acog.org/clinical",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s23",
+      "specialty": "Obstetrics",
+      "name": "SMFM Publications",
+      "url": "https://www.smfm.org/publications",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s24",
+      "specialty": "Pediatrics",
+      "name": "AAP Clinical Practice Guidelines",
+      "url": "https://publications.aap.org/pediatrics/pages/clinical-practice-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s25",
+      "specialty": "Toxicology",
+      "name": "ACMT Position Statements",
+      "url": "https://www.acmt.net/position-statements/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s26",
+      "specialty": "Psychiatry",
+      "name": "APA Practice Guidelines",
+      "url": "https://www.psychiatry.org/psychiatrists/practice/clinical-practice-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s27",
+      "specialty": "Allergy & Immunology",
+      "name": "AAAAI Practice Parameters",
+      "url": "https://www.aaaai.org/practice-resources/statements-and-practice-parameters",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s28",
+      "specialty": "Urology",
+      "name": "AUA Guidelines",
+      "url": "https://www.auanet.org/guidelines-and-quality/guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s29",
+      "specialty": "Orthopedics",
+      "name": "AAOS Clinical Practice Guidelines",
+      "url": "https://www.aaos.org/quality/quality-programs/clinical-practice-guidelines/",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s30",
+      "specialty": "Hematology",
+      "name": "ASH Clinical Practice Guidelines",
+      "url": "https://www.hematology.org/education/clinicians/guidelines-and-quality-care/clinical-practice-guidelines",
+      "kind": "Publisher library"
+    },
+    {
+      "id": "s31",
+      "specialty": "Anesthesiology",
+      "name": "ASA Standards and Guidelines",
+      "url": "https://www.asahq.org/standards-and-practice-parameters",
+      "kind": "Publisher library"
+    }
+  ]
+}
