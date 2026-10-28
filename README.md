@@ -18,6 +18,9 @@ The optional `.github/workflows/link-check.yml` runs Sundays at 09:17 UTC and on
 
 For Actions to commit results, GitHub Actions must be enabled and `contents:write` permission allowed for the workflow.
 
+## Automated discovery
+The weekly workflow also queries NCBI PubMed E-utilities for up to 40 recently published records indexed as Practice Guidelines. It writes unreviewed candidate metadata to `data/recent.json`. These entries appear only in a separate **New on PubMed** tab and do not automatically replace or validate curated references. Publication-type indexing may be delayed or incomplete. A failed PubMed query preserves the previous file.
+
 ## Preview
 Run `python3 -m http.server 8000` in the repo root and visit `http://localhost:8000`.
 
