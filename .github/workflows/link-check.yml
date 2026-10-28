@@ -19,11 +19,13 @@ jobs:
           python-version: "3.12"
       - name: Check reference links
         run: python tools/check_links.py
+      - name: Discover recently published PubMed guideline candidates
+        run: python tools/discover_recent.py
       - name: Publish audit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/link-status.json
+          git add data/link-status.json data/recent.json
           if ! git diff --cached --quiet; then
             git commit -m "Update weekly guideline link health audit"
             git push
