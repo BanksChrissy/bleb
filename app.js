@@ -68,6 +68,7 @@ function rebuildOptions() {
   els.kindWrap.hidden=state.view!=="guidelines";
   els.updatesWrap.hidden=state.view!=="guidelines";
   els.resultsTitle.textContent=state.view==="guidelines"?"Individual guidelines":state.view==="societies"?"Publisher libraries":"New on PubMed · unreviewed";
+  els.auditStatus.hidden=state.view==="recent";
   for(const tab of document.querySelectorAll(".tab")) {
     const active=tab.dataset.view===state.view;
     tab.classList.toggle("active",active);
@@ -110,7 +111,7 @@ function announce(message) {
   node.textContent=message;
 }
 function copyCitation(item,button) {
-  const citation=state.view==="societies"?(item.name+" — "+item.url):(item.organization+". "+item.title+" ("+item.year+"). "+item.url);
+  const citation=state.view==="societies"?(item.name+" — "+item.url):state.view==="recent"?("Unreviewed PubMed candidate: "+item.title+" ("+(item.year||"date unspecified")+"). "+item.url):(item.organization+". "+item.title+" ("+item.year+"). "+item.url);
   const after=()=>{ announce("Reference copied"); button.textContent="✓"; setTimeout(()=>{button.textContent="⧉";},1600); };
   if(navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(citation).then(after).catch(()=>fallbackCopy(citation,after));
@@ -146,7 +147,7 @@ function cardFor(item) {
   const aLabel=auditLabel(item.id);
   if(aLabel)card.append(make("div","meta",aLabel));
   const bottom=make("div","card-bottom");
-  const link=make("a","primary-link","Open official source ↗");
+  const link=make("a","primary-link",state.view==="recent"?"Open PubMed record ↗":"Open official source ↗");
   link.href=item.url;link.target="_blank";link.rel="noopener noreferrer";
   bottom.append(link);
   const tools=make("div","tools");
