@@ -36,6 +36,7 @@
         <div class="tabs" role="tablist" aria-label="Reference type">
           <button type="button" class="tab active" role="tab" aria-selected="true" data-view="guidelines">Individual guidelines</button>
           <button type="button" class="tab" role="tab" aria-selected="false" data-view="societies">Publisher libraries</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-view="recent">New on PubMed</button>
         </div>
         <button id="exportBtn" class="quiet-button" type="button" title="Download currently displayed entries as CSV">Export CSV <span aria-hidden="true">↓</span></button>
       </div>
@@ -45,7 +46,7 @@
           <div class="search-field"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Try: sepsis, stroke, airway, pediatrics…" autocomplete="off"></div>
         </div>
         <div class="filter-grid">
-          <div><label for="specialty">Specialty</label><select id="specialty"><option value="">All specialties</option></select></div>
+          <div id="specialtyWrap"><label for="specialty">Specialty</label><select id="specialty"><option value="">All specialties</option></select></div>
           <div id="yearWrap"><label for="year">Publication year</label><select id="year"><option value="">Any year</option></select></div>
           <div id="kindWrap"><label for="kind">Document type</label><select id="kind"><option value="">All types</option></select></div>
           <div><label for="sort">Sort by</label><select id="sort"><option value="newest">Newest first</option><option value="title">Title A–Z</option><option value="specialty">Specialty A–Z</option></select></div>
@@ -64,7 +65,7 @@
     <section class="about shell" aria-label="Using this reference">
       <div>
         <p class="eyebrow">USING THE ATLAS</p><h2>A map, not a replacement for the source.</h2>
-        <p>Each reference opens the issuing organization or official journal. The year shown is the publication year, <strong>not a guarantee that the guideline remains the newest edition</strong>. An update note appears only when a publisher explicitly describes one.</p>
+        <p>Individual references open issuing organizations or official journals. The separate PubMed discovery feed is <strong>automated and unreviewed</strong>—it is not a recommendation list. The year shown is the publication year, <strong>not a guarantee that the guideline remains the newest edition</strong>. An update note appears only when a publisher explicitly describes one.</p>
       </div>
       <div class="about-list">
         <div><strong>Recommendation grades stay with the publisher.</strong><p>Class of Recommendation, Level of Evidence, GRADE strength and certainty apply to individual recommendations—not an entire guideline.</p></div>
