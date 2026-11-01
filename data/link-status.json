@@ -1,0 +1,274 @@
+{
+  "checkedAt": "2026-11-01T16:00:58+00:00",
+  "explanation": "Checks transport accessibility only; not publication currency or scientific validity. 403/429 are publisher restrictions, not confirmed broken links.",
+  "results": {
+    "aap-febrile": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aba-burn-shock": {
+      "status": "blocked",
+      "http": 403
+    },
+    "acep-mtbi": {
+      "status": "reachable",
+      "http": 200
+    },
+    "acg-pancreatitis": {
+      "status": "reachable",
+      "http": 200
+    },
+    "acog-pph": {
+      "status": "reachable",
+      "http": 200
+    },
+    "acog-preeclampsia": {
+      "status": "reachable",
+      "http": 200
+    },
+    "ada-2026": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-acs": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-adult-als": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-adult-bls": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-af": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-algorithms": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-bp": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-hf": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-ich": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-neonatal": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-pe": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-peds-als": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-peds-bls": {
+      "status": "blocked",
+      "http": 403
+    },
+    "aha-stroke": {
+      "status": "blocked",
+      "http": 403
+    },
+    "apa-delirium": {
+      "status": "reachable",
+      "http": 200
+    },
+    "apa-schizophrenia": {
+      "status": "reachable",
+      "http": 200
+    },
+    "ash-ped-vte": {
+      "status": "reachable",
+      "http": 200
+    },
+    "east-cspine": {
+      "status": "reachable",
+      "http": 200
+    },
+    "gina-asthma": {
+      "status": "reachable",
+      "http": 200
+    },
+    "gold-copd": {
+      "status": "reachable",
+      "http": 200
+    },
+    "idsa-amr": {
+      "status": "reachable",
+      "http": 200
+    },
+    "idsa-cuti": {
+      "status": "reachable",
+      "http": 200
+    },
+    "kdigo-aki": {
+      "status": "reachable",
+      "http": 200
+    },
+    "kdigo-anemia": {
+      "status": "reachable",
+      "http": 200
+    },
+    "kdigo-ckd": {
+      "status": "reachable",
+      "http": 200
+    },
+    "kdigo-iga": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s0": {
+      "status": "blocked",
+      "http": 403
+    },
+    "s1": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s10": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s11": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s12": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s13": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s14": {
+      "status": "blocked",
+      "http": 403
+    },
+    "s15": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s16": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s17": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s18": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s19": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s2": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s20": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s21": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s22": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s23": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s24": {
+      "status": "blocked",
+      "http": 403
+    },
+    "s25": {
+      "status": "possible-broken",
+      "http": 404
+    },
+    "s26": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s27": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s28": {
+      "status": "blocked",
+      "http": 403
+    },
+    "s29": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s3": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s30": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s31": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s4": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s5": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s6": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s7": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s8": {
+      "status": "reachable",
+      "http": 200
+    },
+    "s9": {
+      "status": "blocked",
+      "http": 403
+    },
+    "smfm-maternal-sepsis": {
+      "status": "reachable",
+      "http": 200
+    },
+    "ssc-adult": {
+      "status": "reachable",
+      "http": 200
+    },
+    "ssc-child": {
+      "status": "reachable",
+      "http": 200
+    }
+  }
+}
